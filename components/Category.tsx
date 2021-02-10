@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import Link from "next/link"
+import Link from "next/link";
 
 export default function Category() {
   const categories = [
@@ -27,7 +27,7 @@ export default function Category() {
     <section className="grid-container py-32">
       <main className="col-start-2 col-end-3   grid grid-cols-3 gap-6">
         {categories.map(({ img, name, text, bgColor }) => (
-          <Link href="/products">
+          <Link href="/products" key={name}>
             <div
               className={`${bgColor} bg-${img}   bg-left -left-8 bg-contain bg-no-repeat rounded-xl p-4 cursor-pointer transform hover:scale-105 `}
             >

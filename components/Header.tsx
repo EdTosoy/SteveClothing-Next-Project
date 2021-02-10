@@ -1,35 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 export default function Header() {
   const navs = [
     {
       name: "Home",
-      pathname: "/",
+      pathname: "/#",
     },
     {
       name: "Products",
-      pathname: "/poducts",
+      pathname: "/products",
     },
     {
       name: "About",
-      pathname: "#About",
+      pathname: "/#About",
     },
     {
       name: "Contact",
-      pathname: "#Contact",
-    },
-
-    {
-      name: "Account",
-      pathname: "/auth",
+      pathname: "/#Contact",
     },
   ];
+  const [scroll, setScroll] = useState(0);
+  useEffect(() => {
+    document.addEventListener("scroll", () => {
+      setScroll(window.scrollY);
+    });
+  }, []);
   return (
-    <header className="grid-container sticky top-0  z-50   py-5 bg-blue-100 ">
+    <header
+      className={`${
+        scroll ? "bg-blue-900 text-white shadow-xl  " : "bg-blue-100 "
+      }  grid-container sticky top-0  z-50    py-5  `}
+    >
       <main className="col-start-2 col-end-3 flex items-center justify-between">
         <Link href="/">
-          <h1 className="text-2xl" >Codevo</h1>
+          <h1 className="text-2xl cursor-pointer">Codevo</h1>
         </Link>
         <div className="flex items-center ">
           {navs.map(({ name, pathname }) => (
@@ -37,9 +42,21 @@ export default function Header() {
               <Link href={pathname}>{name}</Link>
             </nav>
           ))}
+
+          <div className="grid place-content-center cursor-pointer hover:bg-blue-200  p-2 rounded-full">
+            <Link href="/auth">
+              <box-icon
+                name="user-circle"
+                color={scroll ? "white" : "#253b70"}
+              ></box-icon>
+            </Link>
+          </div>
           <div className="grid place-content-center cursor-pointer hover:bg-blue-200  p-2 rounded-full">
             <Link href="/cart">
-              <box-icon name="shopping-bag" color="#253b70"></box-icon>
+              <box-icon
+                name="shopping-bag"
+                color={scroll ? "white" : "#253b70"}
+              ></box-icon>
             </Link>
           </div>
         </div>

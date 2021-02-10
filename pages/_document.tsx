@@ -7,9 +7,7 @@ import Document, {
 } from "next/document";
 
 class MyDocument extends Document {
-  
   static async getInitialProps(ctx: DocumentContext) {
-    
     const initialProps = await Document.getInitialProps(ctx);
 
     return initialProps;
@@ -23,7 +21,7 @@ class MyDocument extends Document {
           <link rel="icon" href="/favicon.ico" />
           <meta name="author" content="Ed Tosoy" />
         </Head>
-        <body>
+        <body className="text-lg font-semibold text-blue-900 ">
           <Main />
           <NextScript />
         </body>

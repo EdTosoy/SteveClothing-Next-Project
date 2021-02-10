@@ -28,10 +28,13 @@ export default function Footer() {
     },
   ];
   return (
-    <footer className="grid-container text-white bg-gray-900  py-20  ">
+    <footer
+      className="grid-container text-white bg-gray-900  py-20  "
+      id="Contact"
+    >
       <main className="col-start-2 col-end-3 grid grid-cols-4">
         {footerLink.map(({ title, sub1, sub2, sub3, sub4, sub5 }) => (
-          <div className="">
+          <div className="" key={title}>
             <h1 className="text-xl mb-3">{title}</h1>
             <p className="hover:text-pink-500 mb-1 font-normal ">{sub1}</p>
             <p className="hover:text-pink-500 mb-1 font-normal ">{sub2}</p>

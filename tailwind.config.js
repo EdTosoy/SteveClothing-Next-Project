@@ -12,7 +12,9 @@ module.exports = {
         "category-2-bg": "url('/images/advert2.png')",
         "category-3-bg": "url('/images/advert3.png')",
       }),
-
+      colors: {
+        darkBlue: "#243a6f",
+      },
     },
   },
   variants: {

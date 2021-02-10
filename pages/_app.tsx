@@ -3,9 +3,14 @@ import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from "next/app";
+import { AuthProvider } from "../lib/auth";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+  return (
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
+  );
 }
 
 // Only uncomment this method if you have blocking data requirements for

@@ -10,7 +10,7 @@ import Header from "../components/Header";
 
 export default function Home() {
   return (
-    <div className="text-lg font-bold text-blue-900 ">
+    <div className="">
       <Header />
       <Hero />
       <Category />

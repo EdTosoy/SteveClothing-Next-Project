@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export default function LatestProducts() {
+export default function Products() {
   const featuredProducts = [
     {
       name: "Boy's T-Shirt",
@@ -47,16 +47,25 @@ export default function LatestProducts() {
   return (
     <section className="grid-container py-24   font-semibold    ">
       <main className="col-start-2 col-end-3">
-        <h1 className="text-4xl text-center mb-16">
-          Lat<span className="border-b-4 pb-3 border-pink-600">est Prod</span>
-          ucts
-        </h1>
+        <div className="flex items-center justify-between mb-10 ">
+          <h1 className="text-2xl">All Products</h1>
+          <select
+            name="filter"
+            id="filter"
+            className="border text-black text-base py-2 px-6 "
+          >
+            <option value="Default Sorting" defaultValue="true">
+              Default Sorting
+            </option>
+            <option value="sort by popularity">sort by popularity</option>
+            <option value="sort by price">sort by price</option>
+            <option value="sort by rating">sort by rating</option>
+            <option value="sort by sale">sort by sale</option>
+          </select>
+        </div>
         <div className="col-start-2 col-end-3 grid grid-cols-4 gap-6">
-          {featuredProducts.map(({ img, name, price }, index) => (
-            <div
-              className="hover:bg-black rounded-xl  overflow-hidden shadow-lg mb-10 "
-              key={index}
-            >
+          {featuredProducts.map(({ img, name, price }) => (
+            <div className="hover:bg-black rounded-xl  overflow-hidden shadow-lg mb-10 ">
               <div className="grid place-content-center hover:opacity-90  relative">
                 <Image src={img} width={300} height={400} />
                 <div className="absolute right-0 top-1/2 z-40 opacity-100 ">

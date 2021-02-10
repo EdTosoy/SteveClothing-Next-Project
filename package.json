@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "@types/next": "^9.0.0",
+    "@types/nookies": "^2.0.3",
     "autoprefixer": "^10.2.4",
+    "firebase": "^8.2.6",
+    "firebase-admin": "^9.4.2",
     "next": "^10.0.6",
+    "nookies": "^2.5.2",
     "postcss": "^8.2.5",
     "react": "17.0.1",
     "react-dom": "17.0.1",
