@@ -30,7 +30,7 @@ export default function Testimonials() {
   ];
   return (
     <section className="-mt-10 grid-container pb-20 " id="About">
-      <main className="col-start-2 col-end-3 grid gap-12 grid-cols-3">
+      <main className="col-start-2 col-end-3 grid gap-12 md:grid-cols-3">
         {testimonials.map(({ img, name, text }, index) => (
           <div
             className="rounded-2xl py-12  px-8 transform hover:-translate-y-5 border text-center font-medium z-40 bg-white shadow-md "
@@ -46,6 +46,7 @@ export default function Testimonials() {
                 width={80}
                 height={80}
                 className="rounded-full"
+                alt="name"
               />
             </div>
             <cite className="text-base"> - {name}</cite>
@@ -54,7 +55,7 @@ export default function Testimonials() {
         <div className="col-span-full flex justify-around mt-10 ">
           {partners.map((img, index) => (
             <div className="grid place-content-center" key={index}>
-              <Image src={img} width={80} height={80} />
+              <Image src={img} width={80} height={80} alt="brand" />
             </div>
           ))}
         </div>

@@ -34,11 +34,25 @@ export default function Header() {
     >
       <main className="col-start-2 col-end-3 flex items-center justify-between">
         <Link href="/">
-          <h1 className="text-2xl cursor-pointer">Codevo</h1>
+          <h1
+            className={`
+              ${
+                scroll ? " text-white" : "text-black"
+              } text-3xl font-bold uppercase   `}
+          >
+            Steve
+            <span className="align-top">
+              <box-icon
+                name="meteor"
+                size="md"
+                color={scroll ? "white" : "black"}
+              ></box-icon>
+            </span>
+          </h1>
         </Link>
         <div className="flex items-center ">
           {navs.map(({ name, pathname }) => (
-            <nav key={name} className="mr-5">
+            <nav key={name} className="mr-5 hidden md:block ">
               <Link href={pathname}>{name}</Link>
             </nav>
           ))}

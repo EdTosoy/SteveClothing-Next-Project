@@ -24,12 +24,12 @@ export default function Category() {
     },
   ];
   return (
-    <section className="grid-container py-32">
-      <main className="col-start-2 col-end-3   grid grid-cols-3 gap-6">
+    <section className="grid-container py-20 sm:py-32">
+      <main className="col-start-2 col-end-3 sm:px-8 md:grid  md:grid-cols-3 gap-6">
         {categories.map(({ img, name, text, bgColor }) => (
           <Link href="/products" key={name}>
             <div
-              className={`${bgColor} bg-${img}   bg-left -left-8 bg-contain bg-no-repeat rounded-xl p-4 cursor-pointer transform hover:scale-105 `}
+              className={`${bgColor} bg-${img}   bg-left -left-8 bg-contain bg-no-repeat rounded-xl p-4 cursor-pointer transform hover:scale-105 mb-8 `}
             >
               <div className="border-dashed h-56 rounded-xl p-4 border-white grid items-center justify-end border-2">
                 <div className="w-40  text-white ">

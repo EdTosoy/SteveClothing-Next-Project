@@ -51,14 +51,14 @@ export default function LatestProducts() {
           Lat<span className="border-b-4 pb-3 border-pink-600">est Prod</span>
           ucts
         </h1>
-        <div className="col-start-2 col-end-3 grid grid-cols-4 gap-6">
+        <div className="col-start-2 col-end-3 grid  grid-cols-2 md:grid-cols-4  gap-6">
           {featuredProducts.map(({ img, name, price }, index) => (
             <div
               className="hover:bg-black rounded-xl  overflow-hidden shadow-lg mb-10 "
               key={index}
             >
               <div className="grid place-content-center hover:opacity-90  relative">
-                <Image src={img} width={300} height={400} />
+                <Image src={img} width={300} height={400} alt={name} />
                 <div className="absolute right-0 top-1/2 z-40 opacity-100 ">
                   <div className="grid place-content-center p-4 cursor-pointer my-1 rounded-full bg-white hover:bg-pink-500  ">
                     <box-icon name="heart"></box-icon>
@@ -69,7 +69,7 @@ export default function LatestProducts() {
                 </div>
               </div>
               <div className="py-6 bg-white text-center">
-                <h1 className="text-2xl ">{name}</h1>
+                <h1 className="text-base sm:text-2xl ">{name}</h1>
                 <div className="flex justify-center my-1">
                   <box-icon
                     name="star"

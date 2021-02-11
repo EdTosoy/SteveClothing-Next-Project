@@ -1,5 +1,6 @@
 import firebase from "firebase";
 import React, { FormEvent, useState } from "react";
+import Link from "next/link";
 
 export default function Auth() {
   const [registration, setRegistration] = useState(false);
@@ -43,18 +44,20 @@ export default function Auth() {
   return (
     <section className="grid-container">
       <main className="col-start-2 col-end-3 grid place-content-center h-screen ">
-        <h1 className="text-3xl font-bold uppercase text-black ">
-          Steve
-          <span className="align-top">
-            <box-icon name="meteor" size="md" color=""></box-icon>
-          </span>
-        </h1>
+        <Link href="/">
+          <h1 className="text-3xl font-bold uppercase text-black ">
+            Steve
+            <span className="align-top">
+              <box-icon name="meteor" size="md" color=""></box-icon>
+            </span>
+          </h1>
+        </Link>
 
         <form
-          className=" shadow-lg my-8 rounded-lg p-20 grid border"
+          className=" shadow-lg my-8 rounded-lg p-8 md:p-20 grid border"
           onSubmit={registration ? handleRegisterSubmit : handleLoginSubmit}
         >
-          <h1 className="text-3xl mb-8  font-bold">
+          <h1 className=" text-2xl md:text-3xl mb-8  font-bold ">
             {!registration ? "Sign in to" : "Register"} your account
           </h1>
           {registration && (
@@ -64,7 +67,7 @@ export default function Auth() {
               </label>
               <input
                 type="text"
-                className="w-96 text-lg p-2 my-4 border rounded-md"
+                className="w-full md:w-96 text-lg p-2 my-4 border rounded-md"
                 name="username"
                 id="username"
                 value={username}
@@ -78,7 +81,7 @@ export default function Auth() {
             </label>
             <input
               type="email"
-              className="w-96 text-lg p-2 my-4 border rounded-md"
+              className="w-full md:w-96 text-lg p-2 my-4 border rounded-md"
               name="email"
               id="email"
               value={email}
@@ -91,7 +94,7 @@ export default function Auth() {
             </label>
             <input
               type="password"
-              className="w-96 text-lg p-2 my-4 border rounded-md"
+              className="w-full md:w-96 text-lg p-2 my-4 border rounded-md"
               name="password"
               id="password"
               value={password}
@@ -114,7 +117,7 @@ export default function Auth() {
             Continue
           </button>
         </form>
-        <p className="">
+        <p className="md:text-base text-sm">
           Don't have an account?
           <span
             className="text-purple-600 cursor-pointer hover:underline "

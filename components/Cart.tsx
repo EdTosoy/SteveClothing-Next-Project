@@ -3,17 +3,17 @@ import Image from "next/image";
 
 export default function Cart() {
   return (
-    <section className="grid-container py-20 h-90vh ">
+    <section className="grid-container py-20 h-90vh  ">
       <main className="col-start-2 col-end-3 ">
-        <div className="grid grid-cols-3 justify-between p-2 text-white bg-red-400 ">
-          <h1>Product</h1>
+        <div className="grid grid-cols-4 justify-between p-2 text-white bg-red-400 ">
+          <h1 className="col-span-2">Product</h1>
           <h1 className="text-right">Quantity</h1>
           <h1 className="text-right">Subtotal</h1>
         </div>
-        <div className="grid grid-cols-3 items-center py-2">
-          <div className="flex items-center ">
-            <div className="mr-4">
-              <Image src="/images/pic1.jpg" width={100} height={100} />
+        <div className="grid grid-cols-4 items-center py-2">
+          <div className="flex items-center col-span-2 ">
+            <div className="mr-4 sm:block hidden">
+              <Image src="/images/pic1.jpg" width={100} height={100} alt="name" />
             </div>
             <div className="">
               <h1>Boy’s T-Shirt</h1>
@@ -38,7 +38,9 @@ export default function Cart() {
               <h1>Total </h1>
               <p>$200</p>
             </div>
-            <button className="py-3 px-8 text-white font-bold rounded-lg mt-4 transform hover:scale-95 hover:bg-red-500 bg-red-400" >PROCEED TO CHECKOUT</button>
+            <button className="py-3 px-8 text-white font-bold rounded-lg mt-4 transform hover:scale-95 hover:bg-red-500 bg-red-400">
+              PROCEED TO CHECKOUT
+            </button>
           </div>
         </div>
       </main>
