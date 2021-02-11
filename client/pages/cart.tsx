@@ -2,7 +2,7 @@ import Cart from "components/Cart";
 import Footer from "components/Footer";
 import Header from "components/Header";
 import React from "react";
-import Head from 'next/head';
+import Head from "next/head";
 
 export default function cart() {
   return (
@@ -16,7 +16,6 @@ export default function cart() {
       </Head>
       <Header />
       <Cart />
-      <Footer />
     </div>
   );
 }

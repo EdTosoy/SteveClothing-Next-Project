@@ -4,12 +4,22 @@ import "tailwindcss/tailwind.css";
 // import App from "next/app";
 import type { AppProps /*, AppContext */ } from "next/app";
 import { AuthProvider } from "../lib/auth";
+import { useApollo } from "../lib/apolloClient";
+import Head from "next/head";
+import React from "react";
+import { ApolloProvider } from "@apollo/client";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const apolloClient = useApollo(pageProps.initialApolloState);
+  <Head>
+    <meta name="viewport" content="initial-scale=1.0, width=device-width" />;
+  </Head>;
   return (
-    <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
+    <ApolloProvider client={apolloClient}>
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
+    </ApolloProvider>
   );
 }
 

@@ -6,6 +6,7 @@ const FIREBASE_CONFIG = {
   storageBucket: "steveclothing-next-project.appspot.com",
   messagingSenderId: "375013556266",
   appId: "1:375013556266:web:b4da35a7dc2c2e0f6f0353",
+  
 };
 
 export default function firebaseClient() {

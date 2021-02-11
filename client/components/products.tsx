@@ -1,5 +1,7 @@
 import React from "react";
 import Image from "next/image";
+import { useAddToCartMutation } from "generated/graphql";
+import { uid } from "lib/auth";
 
 export default function Products() {
   const featuredProducts = [
@@ -44,6 +46,8 @@ export default function Products() {
       price: "50",
     },
   ];
+  const [addToCart] = useAddToCartMutation();
+
   return (
     <section className="grid-container py-24   font-semibold    ">
       <main className="col-start-2 col-end-3">
@@ -72,7 +76,19 @@ export default function Products() {
                   <div className="grid place-content-center p-4 cursor-pointer my-1 rounded-full bg-white hover:bg-pink-500  ">
                     <box-icon name="heart"></box-icon>
                   </div>
-                  <div className="grid place-content-center p-4 cursor-pointer my-1 rounded-full bg-white hover:bg-pink-500  ">
+                  <div
+                    className="grid place-content-center p-4 cursor-pointer my-1 rounded-full bg-white hover:bg-pink-500  "
+                    onClick={async () => {
+                      await addToCart({
+                        variables: {
+                          name,
+                          url: img,
+                          price,
+                          user_id: uid,
+                        },
+                      });
+                    }}
+                  >
                     <box-icon name="shopping-bag"></box-icon>
                   </div>
                 </div>
