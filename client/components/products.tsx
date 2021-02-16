@@ -68,8 +68,11 @@ export default function Products() {
           </select>
         </div>
         <div className="col-start-2 col-end-3 grid  grid-cols-2 md:grid-cols-4 gap-6">
-          {featuredProducts.map(({ img, name, price }) => (
-            <div className="hover:bg-black rounded-xl  overflow-hidden shadow-lg mb-10 ">
+          {featuredProducts.map(({ img, name, price }, index) => (
+            <div
+              className="hover:bg-black rounded-xl  overflow-hidden shadow-lg mb-10 "
+              key={index}
+            >
               <div className="grid place-content-center hover:opacity-90  relative">
                 <Image src={img} width={300} height={400} alt={name} />
                 <div className="absolute right-0 top-1/2 z-40 opacity-100 ">
