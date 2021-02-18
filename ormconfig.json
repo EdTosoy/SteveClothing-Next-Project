@@ -3,7 +3,7 @@
   "host": "localhost",
   "port": 5432,
   "username": "postgres",
-  "password": "samsunga316",
+  "password": "postgres",
   "database": "steve-next-project",
   "synchronize": true,
   "logging": true,
