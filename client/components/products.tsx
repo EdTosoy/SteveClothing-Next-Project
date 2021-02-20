@@ -82,7 +82,7 @@ export default function Products() {
                   <div
                     className="grid place-content-center p-4 cursor-pointer my-1 rounded-full bg-white hover:bg-pink-500  "
                     onClick={async () => {
-                      await addToCart({
+                      const response = await addToCart({
                         variables: {
                           name,
                           url: img,
@@ -90,6 +90,7 @@ export default function Products() {
                           user_id: uid,
                         },
                       });
+                      console.log(response.data.addToCart);
                     }}
                   >
                     <box-icon name="shopping-bag"></box-icon>
