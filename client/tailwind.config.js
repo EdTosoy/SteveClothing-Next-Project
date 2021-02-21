@@ -8,9 +8,6 @@ module.exports = {
       },
       backgroundImage: (theme) => ({
         "hero-bg": "url('/images/banner.png')",
-        "category-1-bg": "url('/images/advert1.png')",
-        "category-2-bg": "url('/images/advert2.png')",
-        "category-3-bg": "url('/images/advert3.png')",
       }),
       colors: {
         darkBlue: "#243a6f",

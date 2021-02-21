@@ -8,6 +8,7 @@ import { useApollo } from "../lib/apolloClient";
 import Head from "next/head";
 import React from "react";
 import { ApolloProvider } from "@apollo/client";
+import { MenuProvider } from "ContextAPI/menuContext";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const apolloClient = useApollo(pageProps.initialApolloState);
@@ -16,9 +17,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   </Head>;
   return (
     <ApolloProvider client={apolloClient}>
-      <AuthProvider>
-        <Component {...pageProps} />
-      </AuthProvider>
+      <MenuProvider>
+        <AuthProvider>
+          <Component {...pageProps} />
+        </AuthProvider>
+      </MenuProvider>
     </ApolloProvider>
   );
 }

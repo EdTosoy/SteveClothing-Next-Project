@@ -5,6 +5,7 @@ import { verifyIdToken } from "../firebaseAdmin";
 import { GetServerSideProps } from "next";
 import { AuthContext, uid } from "../lib/auth";
 import firebase from "firebase";
+import { MenuContext } from "ContextAPI/menuContext";
 
 export default function Header() {
   const navs = [
@@ -25,7 +26,9 @@ export default function Header() {
       pathname: "/#Contact",
     },
   ];
+
   const { user } = useContext(AuthContext);
+  const { openMenu, setOpenMenu } = useContext(MenuContext);
   console.log(uid);
   const [scroll, setScroll] = useState(0);
   useEffect(() => {
@@ -39,6 +42,24 @@ export default function Header() {
         scroll ? "bg-blue-900 text-white shadow-xl  " : "bg-blue-100 "
       }  grid-container sticky top-0  z-50    py-5  `}
     >
+      {openMenu && (
+        <div className="col-start-1 md:hidden  col-end-4">
+          <div className="top-16 mt-2 border-t border-b shadow-3xl absolute w-full  text-center  p-6 bg-white ">
+            {navs.map(({ name, pathname }) => (
+              <Link href={pathname} key={name}>
+                <nav
+                  className="cursor-pointer navigation my-4 text-blue-900 "
+                  onClick={() => {
+                    setOpenMenu((prev) => !prev);
+                  }}
+                >
+                  {name}
+                </nav>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
       <main className="col-start-2 col-end-3 flex items-center justify-between">
         <Link href="/">
           <h1
@@ -57,6 +78,7 @@ export default function Header() {
             </span>
           </h1>
         </Link>
+
         <div className="flex items-center ">
           {navs.map(({ name, pathname }) => (
             <nav key={name} className="mr-5 hidden md:block ">
@@ -64,7 +86,19 @@ export default function Header() {
             </nav>
           ))}
 
-          <div className="grid place-content-center cursor-pointer hover:bg-blue-200  p-2 rounded-full">
+          <div
+            className="grid place-content-center cursor-pointer hover:bg-blue-200  md:hidden   p-2 rounded-full"
+            onClick={() => {
+              setOpenMenu((prev) => !prev);
+              console.log(openMenu);
+            }}
+          >
+            <box-icon
+              name="menu"
+              color={scroll ? "white" : "#253b70"}
+            ></box-icon>
+          </div>
+          <div className="grid place-content-center cursor-pointer hover:bg-blue-200 p-2 rounded-full">
             <Link href="/cart">
               <box-icon
                 name="shopping-bag"
@@ -72,6 +106,7 @@ export default function Header() {
               ></box-icon>
             </Link>
           </div>
+
           {!user ? (
             <div className="grid place-content-center cursor-pointer hover:bg-blue-200  p-2 rounded-full">
               <Link href="/auth">
